@@ -1,0 +1,48 @@
+[project]
+name = "gnss-fcnn-benchmark"
+version = "0.1.0"
+description = "Reproduction of the FCNN benchmark from Xu et al. (2024), ML in GNSS Multipath/NLOS Mitigation."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { file = "LICENSE" }
+authors = [{ name = "Joseph Ogunlade" }]
+
+# Pin exact versions in the lockfile (uv.lock / requirements.lock) for reproducibility.
+dependencies = [
+    "numpy>=1.26,<2.2",
+    "pandas>=2.2",
+    "openpyxl>=3.1",          # read the provided .xlsx feature tables
+    "scikit-learn>=1.4",      # scalers, metrics, train/val split
+    "torch>=2.2",             # FCNN (no wheels for Python 3.14 → use 3.11/3.12)
+    "matplotlib>=3.8",        # paper-style figures
+    "hydra-core>=1.3",        # composable config management
+    "pyyaml>=6.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "pre-commit>=3.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gnss_fcnn"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]  # pyflakes, isort, pyupgrade, bugbear, simplify
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]

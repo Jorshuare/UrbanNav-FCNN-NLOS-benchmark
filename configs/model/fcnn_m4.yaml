@@ -1,0 +1,4 @@
+# Table 8 variant M4 — BEST for pseudorange error prediction (val RMSE 15.14 m).
+name: M4
+hidden_dims: [128, 128, 64]
+activation: relu

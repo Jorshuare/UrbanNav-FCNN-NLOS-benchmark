@@ -1,0 +1,4 @@
+# Table 8 variant M1 — 3 hidden layers.
+name: M1
+hidden_dims: [64, 128, 64]
+activation: relu

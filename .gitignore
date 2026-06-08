@@ -1,0 +1,36 @@
+# Python / envs / caches
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Local harness / editor / OS
+.claude/
+.idea/
+.vscode/
+.DS_Store
+
+# Project brief & internal dev notes (not published)
+CLAUDE.md
+next_step.md
+
+# Data: licensed UrbanNav/Kaggle dataset — download separately, NEVER commit
+data/
+
+# References: copyrighted IEEE PDF + internal guide + stage reports — excluded
+references/
+
+# Run outputs / checkpoints / logs
+results/
+
+# Hydra run dirs
+outputs/
+multirun/
+
+# Reports: keep reproduced tables + ONE example submission; ignore the rest
+reports/figures/
+reports/submission_regression.csv
+reports/submission_classification_full_seed42.csv
+reports/submission_classification_full_ensemble.csv

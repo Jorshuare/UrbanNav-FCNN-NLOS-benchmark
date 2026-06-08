@@ -1,0 +1,7 @@
+# Feature set + normalisation for LOS/NLOS classification (Table 7).
+names: [cnr, elevation, pr_residual]
+normalisation:
+  method: minmax
+  range: [0.0, 1.0]     # classification → [0, 1]
+  fit_on: train         # scaler fit on TRAIN split only (no leakage)
+target: label

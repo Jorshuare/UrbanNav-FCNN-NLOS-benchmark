@@ -1,0 +1,4 @@
+# Table 8 variant M5 — 4 hidden layers.
+name: M5
+hidden_dims: [64, 128, 64, 64]
+activation: relu

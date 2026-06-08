@@ -1,0 +1,18 @@
+# Training settings for LOS/NLOS classification (Table 7).
+task: classification
+head:
+  out_dim: 2            # P_NLOS, P_LOS
+  output_activation: softmax
+loss: nll               # negative log-likelihood / cross-entropy
+optimizer:
+  name: adam
+  lr: 0.01
+lr_schedule:
+  name: exponential     # multiplicative decay per epoch
+  gamma: 0.99
+epochs: 100             # not specified in paper → early-stop on val plateau
+early_stopping:
+  monitor: val_accuracy
+  mode: max
+  patience: 15
+batch_size: 256

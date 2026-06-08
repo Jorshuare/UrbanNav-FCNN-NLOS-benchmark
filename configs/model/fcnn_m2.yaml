@@ -1,0 +1,4 @@
+# Table 8 variant M2 — BEST for classification (val acc 0.771).
+name: M2
+hidden_dims: [64, 256, 64]
+activation: relu

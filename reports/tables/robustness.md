@@ -1,0 +1,4 @@
+| Model | Task | Metric | Mean | Std | Min | Max | Paper | n_seeds |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| M2 | classification | val_accuracy | 0.8265 | 0.0027 | 0.8212 | 0.8299 | 0.771 | 10 |
+| M4 | regression | val_rmse_m | 16.32 | 0.094 | 16.209 | 16.477 | 15.14 | 10 |

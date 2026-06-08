@@ -1,0 +1,18 @@
+# Training settings for pseudorange error prediction (Table 7).
+task: regression
+head:
+  out_dim: 1            # pseudorange correction (m)
+  output_activation: none   # linear
+loss: mae               # robust to NLOS outliers
+optimizer:
+  name: adam
+  lr: 0.01
+lr_schedule:
+  name: exponential
+  gamma: 0.99
+epochs: 100             # not specified in paper → early-stop on val plateau
+early_stopping:
+  monitor: val_rmse
+  mode: min
+  patience: 15
+batch_size: 256

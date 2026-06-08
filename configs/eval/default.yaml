@@ -1,0 +1,21 @@
+# Evaluation + reporting.
+# Reproduces Table 8 (all 5 variants) and Table 9 (validation column).
+classification:
+  metrics: [accuracy, precision, recall, f1, roc_auc]  # paper reports accuracy; extras for completeness
+  primary: accuracy
+regression:
+  metrics: [rmse, mae]
+  primary: rmse
+  ground_truth_rmse_reference: 23.87   # uncorrected Pr_Error RMSE on val (Table 8)
+positioning:
+  # Task 3 baseline = OLS least squares; RMSE of East/North (Eq. 11).
+  metric: rmse_east_north
+robustness:
+  # Multi-seed study: report mean +/- std over training seeds (NOT seed-picking).
+  # seed 42 stays the canonical single run; this is supplementary.
+  enabled: true
+  n_seeds: 10
+  base_seed: ${seed}   # seeds = base_seed + [0 .. n_seeds-1]
+report:
+  tables_dir: ${paths.reports_dir}/tables
+  figures_dir: ${paths.reports_dir}/figures

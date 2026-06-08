@@ -1,0 +1,20 @@
+# Top-level Hydra config. Compose task-specific runs by overriding `model`,
+# `features`, and `train`, e.g.:
+#   python scripts/02_train_classification.py model=fcnn_m2 train=classification
+defaults:
+  - data: default
+  - features: classification
+  - model: fcnn_m2
+  - train: classification
+  - eval: default
+  - _self_
+
+seed: 42
+deterministic: true
+
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  results_dir: results
+  reports_dir: reports

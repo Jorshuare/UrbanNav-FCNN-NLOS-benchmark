@@ -1,0 +1,7 @@
+# Feature set + normalisation for pseudorange error prediction (Table 7).
+names: [cnr, elevation, pr_residual]
+normalisation:
+  method: minmax
+  range: [-1.0, 1.0]    # regression → [-1, 1]
+  fit_on: train         # scaler fit on TRAIN split only (no leakage)
+target: pr_error
